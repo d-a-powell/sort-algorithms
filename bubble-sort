@@ -1,0 +1,29 @@
+import random
+import time
+startTime = time.time()
+
+sort_list = random.sample(range(1000), 1000)
+
+
+def bubble_sort():
+    n = len(sort_list)
+    print(sort_list)
+    flag = True
+    while flag:
+        flag = False
+        for i in sort_list:
+            if i + 1 < n:
+                if sort_list[i] > sort_list[i + 1]:
+                    sort_list[i], sort_list[i + 1] = sort_list[i + 1], sort_list[i]
+                    flag = True
+
+    print(sort_list)
+
+    if sort_list == sorted(sort_list):
+        print('bubble sort successful!')
+
+
+bubble_sort()
+
+executionTime = (time.time() - startTime)
+print('Execution time in seconds: ' + str(executionTime))
