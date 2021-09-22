@@ -3,7 +3,7 @@ sort-algorithms coded in python
 
 finished:
 bubble-sort
-bubble-sort-asymptote : added in n/2 optimization
+bubble-sort-asymptote (n/2 optimization)
 
 todo:
 insertion-sort
