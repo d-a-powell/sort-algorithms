@@ -1,0 +1,30 @@
+import random
+import time
+startTime = time.time()
+
+rand_list = random.sample(range(1000), 1000)
+print(rand_list)
+
+
+def insertion_sort():
+
+    for index in range(1, len(rand_list)):
+        value = rand_list[index]
+        position = index
+
+        while position > 0 and rand_list[position - 1] > value:
+            rand_list[position] = rand_list[position - 1]
+            position = position - 1
+
+        rand_list[position] = value
+
+    print(rand_list)
+
+    if rand_list == sorted(rand_list):
+        print('insert sort successful!')
+
+
+insertion_sort()
+
+executionTime = (time.time() - startTime)
+print('Execution time in seconds: ' + str(executionTime))
