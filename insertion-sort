@@ -1,0 +1,32 @@
+# insertion sort assumes your list is already sorted
+# for me, that will be the list [-1], of only one element
+# the next element is compared with the sorted list
+# if smaller, insert before, if larger, insert after
+# repeat until all elements added
+
+import random
+import time
+startTime = time.time()
+
+rand_list = random.sample(range(100), 100)
+print(rand_list)
+
+
+def insertion_sort():
+    sorted_list = [-1]
+    for i in rand_list:
+        if i > sorted_list[-1]:
+            sorted_list.append(i)
+            rand_list.pop(rand_list.index(i))
+
+    sorted_list.pop(0)
+    print(sorted_list)
+
+    if rand_list == sorted(rand_list):
+        print('insertion sort successful!')
+
+
+insertion_sort()
+
+executionTime = (time.time() - startTime)
+print('Execution time in seconds: ' + str(executionTime))
