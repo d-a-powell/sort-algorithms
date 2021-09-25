@@ -1,0 +1,40 @@
+# had to try re-write quicksort completely to include midpoint rather than endpoint sort
+# code hits maximum recursion depth - print statement shows it does almost sort (for small lists)
+# i think it gets stuck on a bad pivot, which then makes the sort become worst case scenario
+# not sure how to fix lmao
+
+
+import random
+import time
+
+numbers = random.sample(range(100), 100)
+print(numbers)
+
+
+def quicksort(array, left, right):
+    if left >= right:
+        return
+    pivot = array[left+right//2]
+    print(pivot)
+    index = partition(array, left, right, pivot)
+    quicksort(array, left, index - 1)
+    quicksort(array, index, right)
+
+
+def partition(array, left, right, pivot):
+    while left <= right:
+        while array[left] < pivot:
+            left = left + 1
+        while array[right] > pivot:
+            right = right - 1
+        if left <= right:
+            array[left], array[right] = array[right], array[left]
+            left = left + 1
+            right = right - 1
+
+    print(numbers)
+
+    return left
+
+
+quicksort(numbers, 0, len(numbers) - 1)
